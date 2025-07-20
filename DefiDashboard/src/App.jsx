@@ -1,6 +1,6 @@
 // File: src/App.jsx
 import React, { useEffect, useState } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import ChartCard from "./components/ChartCard";
 import "./App.css";
 
 const mockData = [
@@ -26,18 +26,7 @@ function App() {
       <h1 className="text-3xl font-bold mb-4">🇺🇬 Uganda DeFi & DAO Pulse</h1>
       <p className="mb-6">Live dashboard of DeFi transactions and DAO activity in Uganda</p>
 
-      <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-2">🔁 Transaction Volume (Hourly)</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" stroke="#ccc" />
-            <YAxis stroke="#ccc" />
-            <Tooltip />
-            <Line type="monotone" dataKey="txs" stroke="#00d8ff" strokeWidth={2} />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
+      <ChartCard title="🔁 Transaction Volume (Hourly)" data={data} />
 
       <div className="mt-8 bg-gray-800 p-4 rounded-lg">
         <h2 className="text-xl font-semibold mb-2">💡 Sponsored by</h2>
