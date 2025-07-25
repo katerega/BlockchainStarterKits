@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Link } from "react-router-dom";
-import { fetchDaoData, fetchTokens, graphFields, fetchNfts } from "../services/defi.service";
+import { fetchDaoData, fetchTokens, fetchNfts } from "../services/defi.service";
 
 const Dashboard = () => {
     const [daoData, setDaoData] = useState([]);
@@ -22,8 +22,6 @@ const Dashboard = () => {
                     nfts: true,
                     stablecoins: true
                 });
-
-                await graphFields()
 
                 const [daos, stableCoins, nfts] = await Promise.all([
                     fetchDaoData(),
